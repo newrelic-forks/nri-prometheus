@@ -8,7 +8,7 @@ COPY . .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -ldflags '-extldflags "-static"' -o mockexporter .
 
 
-FROM alpine:latest
+FROM alpine:3.18.3
 
 RUN mkdir -p /app
 COPY --from=build /app/mockexporter /app
